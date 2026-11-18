@@ -35,13 +35,13 @@
   </header>
 
   <section class="alcove">
-    <div class="mk"><span class="vert">four of six are reachable</span></div>
+    <div class="mk"><span class="vert">five of eight are reachable</span></div>
     <div class="bd">
     <h1>Built, deployed, and still running.</h1>
     <aside class="railcard">
       <div class="cap">what is documented, and what is running</div>
-      <div class="row"><span class="k">Projects documented</span><span class="v">6</span></div>
-      <div class="row"><span class="k">Deployed and reachable</span><span class="v">4</span></div>
+      <div class="row"><span class="k">Projects documented</span><span class="v">8</span></div>
+      <div class="row"><span class="k">Deployed and reachable</span><span class="v">5</span></div>
       <div class="row"><span class="k">Symbols indexed by codemap</span><span class="v">6,050</span></div>
       <div class="row"><span class="k">Charge lines behind the dashboard</span><span class="v">157,750</span></div>
     </aside>
@@ -51,9 +51,22 @@
   <section class="band wide">
     <div class="mk"></div>
     <div class="bd">
-    <p style="font-size:clamp(16px,1.7vw,18.5px);line-height:1.6;color:var(--sumi1)">Selected work across revenue cycle analytics, dashboard and reporting workflows, deep learning and computer vision, and infrastructure. Where something is running, its address sits on the entry, because reachability is the argument.</p>
+    <p style="font-size:clamp(16px,1.7vw,18.5px);line-height:1.6;color:var(--sumi1)">Selected work across revenue cycle analytics, analysis of my own machines and workflow, deep learning and computer vision, the software behind them, and infrastructure. Where something is running, its address sits on the entry, because reachability is the argument.</p>
   </div>
   </section>
+
+  <section class="band">
+    <div class="mk"></div>
+    <div class="bd">
+    <div class="tabs" role="tablist" aria-label="Project groups">
+      <button data-tab="data" role="tab" id="tab-data" aria-controls="p-data" aria-selected="true">data analysis</button>
+      <button data-tab="programming" role="tab" id="tab-programming" aria-controls="p-programming" aria-selected="false" tabindex="-1">programming</button>
+      <button data-tab="infrastructure" role="tab" id="tab-infrastructure" aria-controls="p-infrastructure" aria-selected="false" tabindex="-1">infrastructure</button>
+    </div>
+  </div>
+  </section>
+
+  <div class="ptab" id="p-data" role="tabpanel" aria-labelledby="tab-data">
 
   <!-- ========== RCM ========== -->
   <section class="band wide" id="rcm">
@@ -179,25 +192,41 @@
   </div>
   </section>
 
-  <!-- ========== CLAUDE ========== -->
-  <section class="band wide" id="claude">
-    <div class="mk"><span class="n">02</span><span class="s">javascript</span><span class="s">echarts</span><span class="s">eda</span><span class="s">dataviz</span></div>
+  <!-- ========== ABOVE AND BEYOND ========== -->
+  <section class="band wide" id="beyond">
+    <div class="mk"><span class="n">02</span><span class="s">python</span><span class="s">scikit-learn</span><span class="s">sqlite</span><span class="s">dataviz</span></div>
     <div class="bd">
     <div class="ehead">
-      <h2>Claude Code: a data analytics console</h2>
-      <a class="goto" href="claude-analytics.html">the console</a>
+      <h2>Above and Beyond: what moves together</h2>
+      <a class="goto" href="above-and-beyond.html">the findings</a>
     </div>
-    <p>The console I actually use, rendered here from a captured snapshot. It reads my own Claude Code session history and answers four questions: what the work cost, when it happened, which tools carried it, and which skills the output is attributable to.</p>
+    <p>Every source Sphere collects, read at once: Claude Code prompts, the desktop, the Raspberry Pi, the carbon server, the router, the home network, and the phone. A grouping tree and k-means sort 839 hours into four states, an influence web finds which signals lead which once each one&rsquo;s daily rhythm is removed, and forests forecast the next hour against held-out days. Every claim carries a label for how well it held when the data was resampled, and the page keeps a section for the findings that did not hold.</p>
     <div class="plate" style="margin-top:22px">
-      <img src="img/claude-analytics-preview.jpg" width="1178" height="971" loading="lazy" decoding="async" alt="The Claude usage console: health metrics and the intelligence thermodynamics chart">
+      <img src="img/above-and-beyond-preview.jpg" width="1424" height="865" loading="lazy" decoding="async" alt="Plate III: 839 hours as a ring of spikes colored by state, with the influence web between sixteen signals inside">
     </div>
-    <div class="platecap"><b>Views.</b> Intelligence thermodynamics; cadence and output by weekday and hour; models by reliability and cost; resource utilization and the tool matrix.</div>
+    <div class="platecap"><b>Plate III, the ring and the web.</b> Each spike is an hour, as long as the hour sat far from a usual one; inside, 70 lagged links among the signals. My own wellness logs are removed from the page, and one service&rsquo;s name is blacked out. Built on <a href="#sphere">Sphere</a>.</div>
+  </div>
+  </section>
+
+  <!-- ========== CLAUDE ========== -->
+  <section class="band wide" id="claude">
+    <div class="mk"><span class="n">03</span><span class="s">javascript</span><span class="s">echarts</span><span class="s">eda</span><span class="s">dataviz</span></div>
+    <div class="bd">
+    <div class="ehead">
+      <h2>Claude Code: what the work cost</h2>
+      <a class="goto" href="claude-analytics.html">the usage view</a>
+    </div>
+    <p>Sphere&rsquo;s Claude view, exported from the running app with its own chart code. It reads my Claude Code session history and answers what each session cost, which models and effort levels carried the work, how often my prompts to each model show frustration, how close the work ran to the usage limits, and which tools and skills it ran through. A range switch re-cuts every card from the last hour to all time.</p>
+    <div class="plate" style="margin-top:22px">
+      <img src="img/claude-analytics-preview.jpg" width="1424" height="865" loading="lazy" decoding="async" alt="The Claude view: the summary tiles and the intelligence thermodynamics chart">
+    </div>
+    <div class="platecap"><b>Views.</b> Intelligence thermodynamics; models by family and effort; frustration by model, with signals by week; usage limits; tools, skills, and session lengths. Built on <a href="#sphere">Sphere</a>.</div>
   </div>
   </section>
 
   <!-- ========== EMOTION ========== -->
   <section class="band wide" id="emotion">
-    <div class="mk"><span class="n">03</span><span class="s">python</span><span class="s">tensorflow</span><span class="s">keras</span><span class="s">ann</span><span class="s">cnn</span><span class="s">computer vision</span></div>
+    <div class="mk"><span class="n">04</span><span class="s">python</span><span class="s">tensorflow</span><span class="s">keras</span><span class="s">ann</span><span class="s">cnn</span><span class="s">computer vision</span></div>
     <div class="bd">
       <h2>Facial emotion recognition</h2>
       <p>Built and compared multiple deep learning models to classify facial expressions across four categories: happy, sad, surprised, and neutral. Progressed from a baseline artificial neural network through increasingly refined convolutional architectures.</p>
@@ -222,9 +251,37 @@
     </div>
   </section>
 
+  </div>
+
+  <div class="ptab" id="p-programming" role="tabpanel" aria-labelledby="tab-programming">
+
+  <!-- ========== SPHERE ========== -->
+  <section class="band wide" id="sphere">
+    <div class="mk"><span class="n">01</span><span class="s">electron</span><span class="s">typescript</span><span class="s">sqlite</span><span class="s">python</span><span class="s">echarts</span></div>
+    <div class="bd">
+    <div class="ehead">
+      <h2>Sphere: one app watching every machine I run</h2>
+      <a class="goto" href="above-and-beyond.html">its analysis</a>
+    </div>
+    <p>A desktop app that watches the desktop, a Raspberry Pi, the carbon server, the router, a laptop, the phone, and my Claude Code sessions. A collector writes every source into one SQLite database, scheduled jobs export what each machine reports, and a nightly Python pipeline runs the machine learning behind the analysis pages. The app draws all of it, and the two analysis pages here are its own views, exported with the same chart code.</p>
+    <div class="detail">
+      <div>
+        <ul class="notes">
+          <li>One SQLite database as the record, read-only to every analysis step</li>
+          <li>A nightly run that stops at a fixed cut, so a night&rsquo;s figures can be rerun exactly</li>
+          <li>Each finding judged against a written registry of what counts as held</li>
+        </ul>
+      </div>
+      <div>
+        <p>The source stays private, since it reads my own machines. <a href="above-and-beyond.html">Above and Beyond</a> and <a href="claude-analytics.html">the Claude view</a> show what it produces.</p>
+      </div>
+    </div>
+  </div>
+  </section>
+
   <!-- ========== CARBON ========== -->
   <section class="band wide" id="carbon">
-    <div class="mk"><span class="n">04</span><span class="s">django</span><span class="s">drf</span><span class="s">postgresql</span><span class="s">nuxt 3</span><span class="s">channels</span><span class="s">celery</span><span class="s">docker</span></div>
+    <div class="mk"><span class="n">02</span><span class="s">django</span><span class="s">drf</span><span class="s">postgresql</span><span class="s">nuxt 3</span><span class="s">channels</span><span class="s">celery</span><span class="s">docker</span></div>
     <div class="bd">
     <div class="ehead">
       <h2>carbon: one database for projects, tasks, and goals</h2>
@@ -266,7 +323,7 @@
 
   <!-- ========== CODEMAP ========== -->
   <section class="band wide" id="codemap">
-    <div class="mk"><span class="n">05</span><span class="s">python</span><span class="s">sqlite</span><span class="s">typescript</span><span class="s">rust</span><span class="s">tree-sitter</span></div>
+    <div class="mk"><span class="n">03</span><span class="s">python</span><span class="s">sqlite</span><span class="s">typescript</span><span class="s">rust</span><span class="s">tree-sitter</span></div>
     <div class="bd">
       <div class="ehead">
         <h2>codemap: a dependency index</h2>
@@ -311,9 +368,13 @@
     </div>
   </section>
 
+  </div>
+
+  <div class="ptab" id="p-infrastructure" role="tabpanel" aria-labelledby="tab-infrastructure">
+
   <!-- ========== INFRA ========== -->
   <section class="band wide" id="infra">
-    <div class="mk"><span class="n">06</span><span class="s">docker</span><span class="s">nginx</span><span class="s">cloudflare</span><span class="s">linux</span><span class="s">mariadb</span><span class="s">wireguard</span><span class="s">pi-hole</span></div>
+    <div class="mk"><span class="n">01</span><span class="s">docker</span><span class="s">nginx</span><span class="s">cloudflare</span><span class="s">linux</span><span class="s">mariadb</span><span class="s">wireguard</span><span class="s">pi-hole</span></div>
     <div class="bd">
       <h2>Self-hosted home server infrastructure</h2>
       <p>Private file storage, media streaming, and carbon all run on hardware in my apartment, under one domain. Containerized behind a reverse proxy, with automated certificates, VPN-only access to anything private, and DNS filtering at the network level.</p>
@@ -350,6 +411,8 @@
     </div>
   </section>
 
+  </div>
+
   <section class="band wide">
     <div class="mk"></div>
     <div class="bd">
@@ -374,6 +437,7 @@
   </footer>
 
 </div>
+<script src="js/projects-tabs.js"></script>
 <script src="js/terminals.js"></script>
 <script src="js/zoom.js"></script>
 </body>
