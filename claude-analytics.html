@@ -18,16 +18,14 @@
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="css/ink.css?v=20260822g">
 <style>
-/* The page is the header bar over a frame that fills the rest of the window. The app scrolls inside the frame as it
-   does on the desktop, so its sheets, section bar, and sticky headers work, and its scrollbar is the only one; the
-   intro is placed inside the frame by js/sphere-frame.js so it scrolls away with the content. */
-html,body{height:100%}
-body.sphere-page{display:flex;flex-direction:column;overflow:hidden}
-body.sphere-page>.page{flex:0 0 auto;width:100%}
-.sphere-frame{flex:1 1 auto;display:block;width:100%;min-height:0;border:0;background:transparent}
+/* The Sphere view sits in the page column. Its wrapper is a spacer as tall as the view's content, and the frame is one
+   window tall and pinned inside it; the view's own script ties its scroll to this page's, so the page has one true
+   scrollbar while only what is on screen in the view draws and animates. */
+.sphere-wrap{position:relative;margin:0 var(--pad) clamp(30px,4.6vw,58px);height:100vh}
+.sphere-frame{position:sticky;top:0;display:block;width:100%;height:100vh;border:0;background:transparent}
 </style>
 </head>
-<body class="sphere-page">
+<body>
 <div class="page">
 
   <header class="bar">
@@ -44,17 +42,32 @@ body.sphere-page>.page{flex:0 0 auto;width:100%}
     </nav>
   </header>
 
+  <section class="alcove">
+    <div class="mk"><span class="s">sphere</span><span class="s">electron</span><span class="s">echarts</span><span class="s">dataviz</span></div>
+    <div class="bd">
+      <h1>What the work cost.</h1>
+      <p>This is the Claude view of Sphere, the monitoring app I built for my own machines and workflow, exported from the running app and drawn by its own chart code. Every figure comes from my Claude Code session history: what each session cost, which models and effort levels carried the work, how often my prompts to each model show frustration, how close the work ran to the five-hour and weekly usage limits, and which tools and skills it ran through. The data is a snapshot taken November 18, 2026, and the range switch at the top right re-cuts every card from the last hour to all time.</p>
+      <a class="u" href="projects.html#claude">back to projects</a>
+    </div>
+  </section>
+
+  <div class="sphere-wrap">
+  <iframe class="sphere-frame" src="sphere/claude.html?popout=insights" title="Sphere, Claude view"></iframe>
+  </div>
+
+  <footer class="tech">
+    <span class="foot-l">
+      <span class="markfoot" aria-hidden="true"></span>
+      <span>© 2026 harry nguyen</span>
+    </span>
+    <span class="foot-c">denver &bull; available</span>
+    <span class="foot-r">
+      <a href="Harry_Nguyen_Resume.pdf">resume, pdf</a>
+      <a href="https://portfolio.huy.gg">huy.gg</a>
+    </span>
+  </footer>
+
 </div>
 
-<iframe class="sphere-frame" src="sphere/claude.html?popout=insights" title="Sphere, Claude view"></iframe>
-
-<template id="sphere-intro">
-<section style="margin:24px 24px 6px;padding:28px 32px 26px;border:1px solid rgba(22,22,22,.14);background:#F5F1E8;color:#3E3A34;font-family:Charter,'Bitstream Charter','Iowan Old Style','Palatino Linotype',Georgia,serif">
-  <div style="display:flex;gap:14px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:#706858;margin-bottom:12px"><span>sphere</span><span>electron</span><span>echarts</span><span>dataviz</span></div>
-  <h1 style="margin:0 0 12px;font-weight:400;font-size:40px;line-height:1.05;color:#161616">What the work cost.</h1>
-  <p style="margin:0;font-size:16px;line-height:1.66">This is the Claude view of Sphere, the monitoring app I built for my own machines and workflow, exported from the running app and drawn by its own chart code. Every figure comes from my Claude Code session history: what each session cost, which models and effort levels carried the work, how often my prompts to each model show frustration, how close the work ran to the five-hour and weekly usage limits, and which tools and skills it ran through. The data is a snapshot taken November 18, 2026, and the range switch at the top right re-cuts every card from the last hour to all time.</p>
-</section>
-</template>
-<script src="js/sphere-frame.js"></script>
 </body>
 </html>

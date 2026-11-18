@@ -3383,8 +3383,17 @@ svg *{--fs:1}
 :is(#ml-lab .ml-plates,#ml-lab-layer) .panel.rv.still::after{animation:none}
 
 #hello, .hacts, #sb, #mediabar, #upd, [data-h="insview"]:not([data-v="claude"]), #tel-activity, #tel-cad, #tel-mods { display: none !important; }
+:root[data-look="washi"]{--bg:#EFE9DD;--bg2:#EFE9DD;--panel:#F5F1E8;--panel2:#F5F1E8;--sunk:rgba(22,22,22,.05);
+  --ink:#161616;--muted:#565147;--faint:#706858;--line:rgba(22,22,22,.14);--line2:rgba(22,22,22,.3);--title:#565147;
+  --accent:#A93700;--glow:rgba(169,55,0,.12);--shadow:none;--glass:#F5F1E8;--glass-blur:none;--glass-shadow:none;
+  --display:Charter,"Bitstream Charter","Iowan Old Style","Palatino Linotype",Georgia,serif!important;--serif:Charter,"Bitstream Charter","Iowan Old Style","Palatino Linotype",Georgia,serif!important}
+h2,.panel-hd h3,.panel-meta{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace!important}
+html,body{background:#EFE9DD!important}
 .win{margin-top:0!important;height:100%!important;grid-template-rows:minmax(0,1fr) 0!important}
-.export-note{margin:14px 24px 4px;padding:10px 14px;border:1px solid var(--line);border-radius:2px;color:var(--muted);font-size:13px;line-height:1.55}
+.win,.app,main{background:transparent!important}
+main{scrollbar-width:none}main::-webkit-scrollbar{display:none}
+#sky,.win>.app::after,#page>section:first-child,.rt-hd .tabs,.ruler{display:none!important}
+.panel{border-radius:2px!important;border-top:2px solid #161616!important;box-shadow:none!important}
 </style>
 <script>(() => { const r = document.documentElement; r.dataset.look = "washi"; r.dataset.fs = "m"; r.dataset.detail = "normal"; r.dataset.cards = "glass";
   r.dataset.motion = matchMedia("(prefers-reduced-motion: reduce)").matches ? "still" : "standard"; })();</script>
@@ -3412,7 +3421,7 @@ svg *{--fs:1}
       <button class="ico" id="popbtn" type="button" data-h="popout" aria-label="Open this page in its own window" data-tip="Pop out"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-8 8M18 14v6H4V6h6"/></svg></button>
       </div>
     </div>
-    <main id="main"><div class="export-note">A snapshot of November 18, 2026, exported from the app. The activity, cadence, and mods and hooks cards are left out.</div>
+    <main id="main">
       <div class="page" id="page"></div>
     </main>
     <aside class="rail" id="rail" aria-label="Event ledger" hidden></aside>
@@ -3436,6 +3445,23 @@ svg *{--fs:1}
   const stub = new Proxy({}, { get: (_, k) => FIX[k] ?? (/^on[A-Z]/.test(String(k)) ? () => {} : async () => null) });
   window.sphere = stub;
   window.sphereAuth = stub;
+  // Inside the portfolio frame, the frame is one window tall and pinned while the page scrolls past a spacer as tall as
+  // this content; the page's scroll sets <main>'s, and a scroll inside <main> (a wheel over the frame, a section-bar
+  // press) moves the page to match, so the page's scrollbar is the only one and stays true to the length.
+  if (window.frameElement) {
+    const fr = window.frameElement, wrap = fr.parentElement, main = () => document.getElementById("main");
+    const top = () => parent.scrollY + wrap.getBoundingClientRect().top;
+    let echo = -1;
+    const fromPage = () => { const m = main(); if (!m) return; const want = Math.max(0, Math.min(m.scrollHeight - m.clientHeight, parent.scrollY - top()));
+      if (Math.abs(m.scrollTop - want) > 1) { echo = Math.round(want); m.scrollTop = want; } };
+    parent.addEventListener("scroll", fromPage, { passive: true }); parent.addEventListener("resize", fromPage);
+    document.addEventListener("scroll", (e) => { const m = e.target; if (m.id !== "main") return;
+      if (Math.abs(m.scrollTop - echo) <= 1) { echo = -1; return; }
+      parent.scrollTo(0, top() + m.scrollTop); }, { capture: true, passive: true });
+    // The spacer's height is this content's, read whenever it changes.
+    const size = () => { const m = main(); if (m) wrap.style.height = m.scrollHeight + "px"; };
+    new ResizeObserver(size).observe(document.getElementById("page")); setInterval(size, 2000); size();
+  }
   const TEXT = [];
   if (TEXT.length) {
     let queued = false;
