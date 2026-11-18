@@ -17,6 +17,14 @@
 <meta property="og:image" content="https://portfolio.huy.gg/img/logo.png">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="css/ink.css?v=20260822g">
+<style>
+/* The tabs and the first card of the open panel read as one band, as on the resume: no rule or band padding between
+   them, only the gap the resume leaves under its tab rule, which sits inside the columns so their rule stays unbroken. */
+.band.tabband{padding-bottom:0}
+.ptab>.band:first-of-type{border-top:0;padding-top:0}
+.ptab>.band:first-of-type>.bd{padding-top:clamp(20px,3vw,30px)}
+.ptab>.band:first-of-type>.mk{padding-top:calc(7px + clamp(20px,3vw,30px))}
+</style>
 </head>
 <body>
 <div class="page">
@@ -55,7 +63,7 @@
   </div>
   </section>
 
-  <section class="band">
+  <section class="band tabband">
     <div class="mk"></div>
     <div class="bd">
     <div class="tabs" role="tablist" aria-label="Project groups">
