@@ -18,12 +18,16 @@
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="css/ink.css?v=20260822g">
 <style>
-/* The app draws at desktop width and scrolls inside its own frame, so the frame spans the window and keeps a
-   window's height; the app's stylesheet stays inside the iframe and never meets ink.css. */
-.sphere-frame{display:block;width:100vw;margin-left:calc(50% - 50vw);height:calc(100vh - 24px);min-height:560px;border:0;background:#05060b}
+/* The page is the header bar over a frame that fills the rest of the window. The app scrolls inside the frame as it
+   does on the desktop, so its sheets, section bar, and sticky headers work, and its scrollbar is the only one; the
+   intro is placed inside the frame by js/sphere-frame.js so it scrolls away with the content. */
+html,body{height:100%}
+body.sphere-page{display:flex;flex-direction:column;overflow:hidden}
+body.sphere-page>.page{flex:0 0 auto;width:100%}
+.sphere-frame{flex:1 1 auto;display:block;width:100%;min-height:0;border:0;background:transparent}
 </style>
 </head>
-<body>
+<body class="sphere-page">
 <div class="page">
 
   <header class="bar">
@@ -40,30 +44,17 @@
     </nav>
   </header>
 
-  <section class="alcove">
-    <div class="mk"><span class="s">sphere</span><span class="s">python</span><span class="s">scikit-learn</span><span class="s">dataviz</span></div>
-    <div class="bd">
-      <h1>What moves together.</h1>
-      <p>This is the Above and Beyond view of Sphere, the monitoring app I built for my own machines and workflow, exported from the running app and drawn by its own chart code. It reads every source Sphere collects at once: Claude Code prompts, the desktop, the Raspberry Pi, the carbon server, the router, the home network, and the phone. It asks which of them rise and fall together, which leads, what kinds of hours and days there are, and how far each finding can be trusted. The plates come from a nightly machine learning run, a grouping tree and k-means over 839 hours, forests with held-out tests, and resampled checks on every claim. The data is a snapshot from the run of November 17, 2026. My own wellness logs (sleep, mood, energy, and productivity) are removed, and one service's name is blacked out.</p>
-    </div>
-  </section>
-
 </div>
 
 <iframe class="sphere-frame" src="sphere/beyond.html?popout=insights" title="Sphere, Above and Beyond view"></iframe>
 
-<div class="page">
-  <footer class="tech">
-    <span class="foot-l">
-      <span class="markfoot" aria-hidden="true"></span>
-      <span>© 2026 harry nguyen</span>
-    </span>
-    <span class="foot-c">denver &bull; available</span>
-    <span class="foot-r">
-      <a href="Harry_Nguyen_Resume.pdf">resume, pdf</a>
-      <a href="https://portfolio.huy.gg">huy.gg</a>
-    </span>
-  </footer>
-</div>
+<template id="sphere-intro">
+<section style="margin:24px 24px 6px;padding:28px 32px 26px;border:1px solid rgba(22,22,22,.14);background:#F5F1E8;color:#3E3A34;font-family:Charter,'Bitstream Charter','Iowan Old Style','Palatino Linotype',Georgia,serif">
+  <div style="display:flex;gap:14px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:#706858;margin-bottom:12px"><span>sphere</span><span>python</span><span>scikit-learn</span><span>dataviz</span></div>
+  <h1 style="margin:0 0 12px;font-weight:400;font-size:40px;line-height:1.05;color:#161616">What moves together.</h1>
+  <p style="margin:0;max-width:820px;font-size:16px;line-height:1.66">This is the Above and Beyond view of Sphere, the monitoring app I built for my own machines and workflow, exported from the running app and drawn by its own chart code. It reads every source Sphere collects at once: Claude Code prompts, the desktop, the Raspberry Pi, the carbon server, the router, the home network, and the phone. It asks which of them rise and fall together, which leads, what kinds of hours and days there are, and how far each finding can be trusted. The plates come from a nightly machine learning run, a grouping tree and k-means over 839 hours, forests with held-out tests, and resampled checks on every claim. The data is a snapshot from the run of November 17, 2026. My own wellness logs (sleep, mood, energy, and productivity) are removed, and one service's name reads &ldquo;redacted&rdquo;; a note at the top of the view says where.</p>
+</section>
+</template>
+<script src="js/sphere-frame.js"></script>
 </body>
 </html>

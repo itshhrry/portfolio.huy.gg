@@ -100,7 +100,7 @@
     "ELLIE cpu": "how hard the desktop's processor worked", "ELLIE memory": "how much of the desktop's memory was in use", "Pi temperature": "how warm the Raspberry Pi ran",
     "Pi load": "how busy the Raspberry Pi was", "carbon memory": "memory in use on the carbon laptop server", "Claude's processes": "how many programs Claude Code started",
     prompts: "messages you typed to Claude", friction: "messages that showed frustration", "phone opens": "times an app was opened on the iPhone",
-    "█████ activity": "how much █████ logged", "█████ errors": "errors from █████, mostly its SSH agent", "routine failures": "scheduled jobs that failed",
+    "redacted activity": "how much redacted logged", "redacted errors": "errors from redacted, mostly its SSH agent", "routine failures": "scheduled jobs that failed",
     "Sphere alerts": "alerts Sphere raised", "Windows errors": "errors in Windows' own logs", "network weather": "how slow the connection to your own services was, all of them at once",
     "ELLIE traffic": "data the desktop sent and received",
   };
@@ -164,7 +164,7 @@
     cpu_lag1: "CPU an hour before", cpu_yday: "CPU this hour yesterday", hod_s: "hour of day (sine)", hod_c: "hour of day (cosine)",
     at_keyboard: "at the keyboard", fg_claude: "Claude in front", fg_terminal: "terminal in front", fg_browser: "browser in front", fg_obsidian: "Obsidian in front",
     ram_claude_gb: "Claude's memory", ram_browser_gb: "browser memory", ram_obsidian_gb: "Obsidian memory", ram_node_gb: "node memory", ellie_cpu_s: "CPU seconds",
-    net_mb: "network traffic", proc_starts: "process starts", task_fail: "failed tasks", op_unlock: "█████ unlocks", op_ssh: "█████ SSH",
+    net_mb: "network traffic", proc_starts: "process starts", task_fail: "failed tasks", op_unlock: "redacted unlocks", op_ssh: "redacted SSH",
     win_err: "Windows errors", vault_log_edits: "log edits", commits_carbon: "carbon commits", commits_sphere: "Sphere commits", tok_in_k: "input tokens",
     tok_cache_read_m: "cache reads", sessions: "sessions", idx: "place in the session", gap_min: "minutes since the last prompt", sess_min: "minutes into the session",
     prev_fric: "last prompt had friction", prev_praise: "last prompt praised", prev_swear: "last prompt swore", fric_last3: "friction in the last three",
