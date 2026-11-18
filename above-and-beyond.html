@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Above and Beyond | Harry Nguyen</title>
+<meta name="description" content="The Above and Beyond view of Sphere, my own monitoring app: findings across Claude prompts, machine telemetry, the home network, and the phone, with the ML lab's plates, exported with its own chart code.">
+<meta name="author" content="Harry Nguyen">
+<meta name="color-scheme" content="light">
+<link rel="canonical" href="https://portfolio.huy.gg/above-and-beyond.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="huy.gg">
+<meta property="og:url" content="https://portfolio.huy.gg/above-and-beyond.html">
+<meta property="og:title" content="Above and Beyond | Harry Nguyen">
+<meta property="og:description" content="Findings across Claude prompts, machine telemetry, the home network, and the phone, from Sphere's own ML lab.">
+<meta property="og:image" content="https://portfolio.huy.gg/img/logo.png">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="css/ink.css?v=20260822g">
+<style>
+/* The app draws at desktop width and scrolls inside its own frame, so the frame spans the window and keeps a
+   window's height; the app's stylesheet stays inside the iframe and never meets ink.css. */
+.sphere-frame{display:block;width:100vw;margin-left:calc(50% - 50vw);height:calc(100vh - 24px);min-height:560px;border:0;background:#05060b}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="bar">
+    <a class="home" href="index.html">
+      <span class="markbar" aria-hidden="true"></span>
+      <span class="who">Harry Nguyen</span>
+    </a>
+    <span class="sp"></span>
+    <nav>
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="projects.html">projects</a>
+      <a href="resume.html">resume</a>
+    </nav>
+  </header>
+
+  <section class="alcove">
+    <div class="mk"><span class="s">sphere</span><span class="s">python</span><span class="s">scikit-learn</span><span class="s">dataviz</span></div>
+    <div class="bd">
+      <h1>What moves together.</h1>
+      <p>This is the Above and Beyond view of Sphere, the monitoring app I built for my own machines and workflow, exported from the running app and drawn by its own chart code. It reads every source Sphere collects at once: Claude Code prompts, the desktop, the Raspberry Pi, the carbon server, the router, the home network, and the phone. It asks which of them rise and fall together, which leads, what kinds of hours and days there are, and how far each finding can be trusted. The plates come from a nightly machine learning run, a grouping tree and k-means over 839 hours, forests with held-out tests, and resampled checks on every claim. The data is a snapshot from the run of November 17, 2026. My own wellness logs (sleep, mood, energy, and productivity) are removed, and one service's name is blacked out.</p>
+    </div>
+  </section>
+
+</div>
+
+<iframe class="sphere-frame" src="sphere/beyond.html?popout=insights" title="Sphere, Above and Beyond view"></iframe>
+
+<div class="page">
+  <footer class="tech">
+    <span class="foot-l">
+      <span class="markfoot" aria-hidden="true"></span>
+      <span>© 2026 harry nguyen</span>
+    </span>
+    <span class="foot-c">denver &bull; available</span>
+    <span class="foot-r">
+      <a href="Harry_Nguyen_Resume.pdf">resume, pdf</a>
+      <a href="https://portfolio.huy.gg">huy.gg</a>
+    </span>
+  </footer>
+</div>
+</body>
+</html>
