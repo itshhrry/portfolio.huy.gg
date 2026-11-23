@@ -1,0 +1,2 @@
+# Reviewed gitleaks findings that are not secrets, one fingerprint per line.
+4b95d2700d3caefd78064e6d47d30632b2838c8e:claude-analytics.html:generic-api-key:1066
