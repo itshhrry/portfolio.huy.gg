@@ -18,3 +18,6 @@ The portfolio site at huy.gg: static HTML, CSS, and JavaScript served by GitHub 
 - Nothing private goes in a commit: the repository is public, so no vault paths, machine names, secrets, or personal data beyond what the site already shows.
 - Check a change in a browser render before reporting it done.
 - Commit subjects follow `type: what changed` from the twelve types in `~/.claude/CLAUDE.md`, with no scope.
+
+
+The pre-push gate reads `.gate.json` for this repository's suite commands and scanners.

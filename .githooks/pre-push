@@ -1,0 +1,15 @@
+#!/bin/sh
+# Pre-push gate shim: runs the shared toolkit named by `git config gitgate.path`.
+gitgate=$(git config gitgate.path)
+if [ -z "$gitgate" ]; then
+  echo "pre-push: set the toolkit folder with: git config gitgate.path <path to pwsh-tools/git-gate>"
+  exit 1
+fi
+repo=$(git rev-parse --show-toplevel)
+zero=0000000000000000000000000000000000000000
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "$zero" ] && continue
+  if [ "$remote_sha" = "$zero" ]; then range="origin/main..$local_sha"; else range="$remote_sha..$local_sha"; fi
+  pwsh -NoProfile -File "$gitgate/Invoke-GitGate.ps1" -RepoPath "$repo" -Range "$range" || exit 1
+done
+exit 0
