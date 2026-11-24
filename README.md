@@ -45,3 +45,7 @@ This site currently uses:
 ├── style.css
 ├── CNAME
 └── README.md
+
+## Pushing
+
+A push to `main` passes the pre-push hook in `.githooks/pre-push`: a secrets scan, the dependency advisory baseline, Semgrep on the changed files, and the tests the push reaches. On a fresh clone, turn it on once with `git config core.hooksPath .githooks` and `git config gitgate.path <folder of the git-gate toolkit>`.
